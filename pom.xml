@@ -111,30 +111,6 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>io.helidon.service</groupId>
-                <artifactId>helidon-service-maven-plugin</artifactId>
-                <version>${helidon.version}</version>
-                <executions>
-                    <execution>
-                        <id>create-application</id>
-                        <goals>
-                            <goal>create-application</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>io.helidon.codegen</groupId>
-                        <artifactId>helidon-codegen-helidon-copyright</artifactId>
-                        <version>${helidon.version}</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <failOnWarning>true</failOnWarning>
-                    <generateMain>false</generateMain>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 </project>

@@ -3,6 +3,7 @@ package io.helidon.hol.lc4j;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.function.Supplier;
 import java.util.logging.Logger;
 
 import io.helidon.common.config.Config;
@@ -13,8 +14,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.langchain4j.data.document.Document;
 import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.model.embedding.EmbeddingModel;
+import dev.langchain4j.model.embedding.onnx.allminilml6v2.AllMiniLmL6V2EmbeddingModel;
 import dev.langchain4j.store.embedding.EmbeddingStore;
 import dev.langchain4j.store.embedding.EmbeddingStoreIngestor;
+import dev.langchain4j.store.embedding.inmemory.InMemoryEmbeddingStore;
 
 @Service.Singleton
 public class MenuItemsIngestor {
@@ -78,5 +81,27 @@ public class MenuItemsIngestor {
         );
 
         return Document.from(str);
+    }
+
+    /**
+     * This is the embedding model we want to use.
+     */
+    @Service.Singleton
+    static class EmbeddingModelFactory implements Supplier<EmbeddingModel> {
+        @Override
+        public EmbeddingModel get() {
+            return new AllMiniLmL6V2EmbeddingModel();
+        }
+    }
+
+    /**
+     * And the embedding store we want to use.
+     */
+    @Service.Singleton
+    static class EmbeddingStoreFactory implements Supplier<EmbeddingStore<TextSegment>> {
+        @Override
+        public EmbeddingStore<TextSegment> get() {
+            return new InMemoryEmbeddingStore<>();
+        }
     }
 }

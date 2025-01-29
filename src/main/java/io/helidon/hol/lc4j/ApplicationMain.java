@@ -17,7 +17,7 @@ public class ApplicationMain {
 
         WebServer.builder()
                 .config(config.get("server"))
-                .routing(routing -> routing.register("/", Services.get(ChatResource.class)))
+                .routing(routing -> routing.register("/", Services.get(ChatBotService.class)))
                 .build()
                 .start();
     }

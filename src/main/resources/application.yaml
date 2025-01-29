@@ -2,7 +2,6 @@ server:
   host: "0.0.0.0"
   port: 8080
 
-# langchain4j.open-ai.streaming-chat-model
 langchain4j:
   open-ai:
     chat-model:
@@ -12,7 +11,8 @@ langchain4j:
   rag:
     embedding-store-content-retriever:
       enabled: true
-      max-results: 3
+      max-results: 10
       min-score: 0.6
+      embedding-model: "@default"
 app:
   menu-items: "./data/menu.json"
