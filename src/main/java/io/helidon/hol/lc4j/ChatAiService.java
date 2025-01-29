@@ -5,7 +5,7 @@ import io.helidon.integrations.langchain4j.Ai;
 import dev.langchain4j.service.SystemMessage;
 
 @Ai.Service
-public interface ChatAiService {
+interface ChatAiService {
 
     @SystemMessage("""
             You are Frank - a server in a coffee shop.

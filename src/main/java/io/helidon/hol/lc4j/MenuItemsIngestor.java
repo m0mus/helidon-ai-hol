@@ -20,7 +20,7 @@ import dev.langchain4j.store.embedding.EmbeddingStoreIngestor;
 import dev.langchain4j.store.embedding.inmemory.InMemoryEmbeddingStore;
 
 @Service.Singleton
-public class MenuItemsIngestor {
+class MenuItemsIngestor {
     private static final String CONFIG_KEY = "app.menu-items";
     private static final Logger LOGGER = Logger.getLogger(MenuItemsIngestor.class.getName());
 

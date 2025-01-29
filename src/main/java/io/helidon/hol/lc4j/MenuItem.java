@@ -2,7 +2,7 @@ package io.helidon.hol.lc4j;
 
 import java.util.List;
 
-public class MenuItem {
+class MenuItem {
     private String name;
     private String description;
     private String category;

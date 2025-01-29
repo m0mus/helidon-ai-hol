@@ -8,7 +8,7 @@ import io.helidon.webserver.http.ServerRequest;
 import io.helidon.webserver.http.ServerResponse;
 
 @Service.Singleton
-public class ChatBotService implements HttpService {
+class ChatBotService implements HttpService {
 
     private final ChatAiService chatAiService;
 
