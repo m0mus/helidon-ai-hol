@@ -20,7 +20,7 @@ In this hands-on lab, you will build an AI-powered chat assistant for a coffee s
 5. [Adding Retrieval-Augmented Generation (RAG)](./hol/05_adding_rag.md)
 6. [Preparing Application Data](./hol/06_preparing_application_data.md)
 7. [Filling Embedding Store](./hol/07_filling_embedding_store.md)
-8. [Fine-Tuning AI Responses](./hol/08_fine_tuning.md)**
+8. [Fine-Tuning AI Responses](./hol/08_fine_tuning.md)
 
 Let’s get started! 🚀
 
