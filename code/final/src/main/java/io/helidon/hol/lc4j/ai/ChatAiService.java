@@ -1,11 +1,12 @@
-package io.helidon.hol.lc4j;
+package io.helidon.hol.lc4j.ai;
 
 import io.helidon.integrations.langchain4j.Ai;
 
 import dev.langchain4j.service.SystemMessage;
 
 @Ai.Service
-interface ChatAiService {
+@Ai.ChatMemoryWindow(10)
+public interface ChatAiService {
 
     @SystemMessage("""
             You are Frank - a server in a coffee shop.

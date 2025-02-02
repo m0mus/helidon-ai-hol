@@ -1,8 +1,8 @@
-package io.helidon.hol.lc4j;
+package io.helidon.hol.lc4j.data;
 
 import java.util.List;
 
-class MenuItem {
+public class MenuItem {
     private String name;
     private String description;
     private String category;

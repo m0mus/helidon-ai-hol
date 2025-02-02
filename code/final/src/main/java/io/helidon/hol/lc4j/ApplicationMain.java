@@ -1,17 +1,20 @@
 package io.helidon.hol.lc4j;
 
-import io.helidon.logging.common.LogConfig;
 import io.helidon.common.config.Config;
+import io.helidon.hol.lc4j.ai.MenuItemsIngestor;
+import io.helidon.hol.lc4j.rest.ChatBotService;
+import io.helidon.logging.common.LogConfig;
 import io.helidon.service.registry.Services;
 import io.helidon.webserver.WebServer;
 
 public class ApplicationMain {
     public static void main(String[] args) {
-        // make sure logging is enabled as the first thing
+        // Make sure logging is enabled as the first thing
         LogConfig.configureRuntime();
 
-        Config config = Services.get(Config.class);
+        var config = Services.get(Config.class);
 
+        // Initialize embedding store
         Services.get(MenuItemsIngestor.class)
                 .ingest();
 
