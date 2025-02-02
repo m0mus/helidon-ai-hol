@@ -175,4 +175,4 @@ You should receive an AI-generated response.
 
 ---
 
-### Next Step → [Building AI Service](hol/04_building_ai_service.md)
+### Next Step → [Building AI Service](04_building_ai_service.md)

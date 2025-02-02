@@ -218,4 +218,4 @@ Loaded menu item: Cappuccino
 
 ---
 
-### **Next Step → [Filling the Embedding Store with Data](hol/07_building_embeddings_store.md)**
+### **Next Step → [Filling the Embedding Store with Data](07_filling_embedding_store.md)**

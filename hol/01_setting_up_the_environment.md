@@ -86,4 +86,4 @@ You can use any code editor of your choice. Recommended options:
 
 ---
 
-### Next Step → [Setting Up the Project](hol/02_setting_up_the_project.md)
+### Next Step → [Setting Up the Project](02_setting_up_the_project.md)

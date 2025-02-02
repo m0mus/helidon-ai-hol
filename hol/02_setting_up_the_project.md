@@ -69,4 +69,4 @@ curl -X GET http://localhost:8080/chat
 
 ---
 
-### Next Step → [Enabling AI Capabilities in the Project](hol/03_enabling_ai_capabilities_in_the_project.md)
+### Next Step → [Enabling AI Capabilities in the Project](03_enabling_ai_capabilities_in_the_project.md)

@@ -130,4 +130,4 @@ curl -X GET "http://localhost:8080/chat?question=Hello"
 
 ---
 
-### Next Step → [Adding Retrieval-Augmented Generation (RAG)](hol/05_adding_rag.md)
+### Next Step → [Adding Retrieval-Augmented Generation (RAG)](05_adding_rag.md)

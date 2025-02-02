@@ -156,4 +156,4 @@ curl -X GET "http://localhost:8080/chat?question=What drinks do you have?"
 
 ---
 
-### Next Step → [Ingesting Menu Data into the Embedding Store](hol/07_ingesting_menu_data.md)
+### Next Step → [Preparing Application Data](06_preparing_application_data.md)

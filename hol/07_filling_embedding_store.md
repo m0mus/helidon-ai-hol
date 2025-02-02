@@ -198,4 +198,4 @@ Here are **five questions** to test whether the **assistant retrieves relevant m
 
 ---
 
-### **Next Step → [Fine-Tuning AI Responses](hol/08_fine_tuning.md)**
+### Next Step → [Fine-Tuning AI Responses](08_fine_tuning.md)
