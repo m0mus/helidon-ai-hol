@@ -2,10 +2,10 @@
 
 ## In This Section, We Will:
 
-- Understand the need for an AI Service in LLM-powered applications.
-- Learn how LangChain4J AI Services help combine multiple AI components.
-- Implement an AI Service.
-- Modify our RESTful service to use the AI Service instead of calling the chat model directly.
+- Understand the need for an **AI Service** in LLM-powered applications.
+- Learn how **LangChain4J AI Services** help combine multiple AI components.
+- Implement an **AI Service**.
+- Modify our **RESTful service** to use the AI Service instead of calling the chat model directly.
 
 ---
 
@@ -28,10 +28,12 @@ An **AI Service** is a user-defined interface annotated with `@Ai.Service`. By d
 
 At this stage, only the **`ChatLanguageModel`** has been configured, so it will be **automatically injected** into the service. Later, we will extend the AI Service by adding **embedding storage, chat memory**, and other components to enhance its capabilities.
 
-Create a new file `ChatAiService.java` in your project and add the following code:
+📌 We will keep all AI-related classes in `io.helidon.hol.lc4j.ai` package. Create this package first if it doesn't exist.
+
+**Create a new file `MenuItem.java` in `io.helidon.hol.lc4j.ai` package:**
 
 ```java
-package io.helidon.hol.lc4j;
+package io.helidon.hol.lc4j.ai;
 
 import io.helidon.integrations.langchain4j.Ai;
 
@@ -67,14 +69,6 @@ var answer = chatAiService.chat(question);
 Here is the updated version of `ChatBotService`:
 
 ```java
-import io.helidon.service.registry.Service;
-import io.helidon.webserver.http.HttpRules;
-import io.helidon.webserver.http.HttpService;
-import io.helidon.webserver.http.ServerRequest;
-import io.helidon.webserver.http.ServerResponse;
-import dev.langchain4j.service.ChatAiService;
-import io.helidon.common.media.type.MediaTypes;
-
 @Service.Singleton
 class ChatBotService implements HttpService {
 
@@ -98,8 +92,7 @@ class ChatBotService implements HttpService {
         // Calling the AI service to get the answer
         var answer = chatAiService.chat(question);
 
-        // Setting response content type and returning the answer
-        res.headers().contentType(MediaTypes.TEXT_PLAIN);
+        // Return the answer
         res.send(answer);
     }
 }

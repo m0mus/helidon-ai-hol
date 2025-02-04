@@ -85,13 +85,13 @@ http://localhost:8080/chat?question="What is the weather today?"
 
 *"I'm here to help with the menu and taking orders! Would you like to know about our coffee options or maybe our pastries?"*
 
-**Now ask a relevant question:
+**Now ask a relevant question:**
 
 ```
 http://localhost:8080/chat?question="What coffee do you have?"
 ```
 
-**Expected response:
+**Expected response:**
 
 *"We offer a variety of coffee drinks, including Latte, Espresso, Cappuccino, and more! Would you like to customize your drink?"*
 

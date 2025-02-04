@@ -88,7 +88,7 @@ public class MenuItem {
 }
 ```
 
-🔹 This **Java class** maps the **JSON fields** to **Java fields** of corresponding types.
+This **Java class** maps the **JSON fields** to **Java fields** of corresponding types.
 
 ## 3. Configuring the Application to Read Data
 
@@ -166,15 +166,6 @@ Now, we need to **modify the main class** to read menu items **during applicatio
 **Update `ApplicationMain.java`:**
 
 ```java
-package io.helidon.hol.lc4j;
-
-import io.helidon.logging.common.LogConfig;
-import io.helidon.webserver.WebServer;
-import io.helidon.service.registry.Services;
-import io.helidon.common.config.Config;
-import io.helidon.hol.lc4j.data.MenuItemsIngestor;
-import java.util.List;
-
 public class ApplicationMain {
     public static void main(String[] args) {
         // Initialize logging

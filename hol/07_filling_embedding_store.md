@@ -22,7 +22,7 @@ We will use LangChain4J’s `EmbeddingStoreIngestor`, which simplifies the inges
 
 We will implement the ingestor as a **Helidon bean** and inject all required components using **constructor injection**.
 
-📌 **Create `MenuItemsIngestor.java` in `io.helidon.hol.lc4j.ai` and add the following code:**
+**Create `MenuItemsIngestor.java` in `io.helidon.hol.lc4j.ai` and add the following code:**
 
 ```java
 package io.helidon.hol.lc4j.ai;
@@ -68,7 +68,7 @@ To convert menu items into embeddings, we need a **structured text representatio
 
 The **formatted text** should look like this:
 
-> `"Latte: A rich espresso drink with steamed milk. Category: Drink. Price: $4.50. Tags: Hot, Customizable, Classic. Add-ons: Oat milk, Soy milk, Extra shot, Caramel syrup."`
+> Latte: A rich espresso drink with steamed milk. Category: Drink. Price: $4.50. Tags: Hot, Customizable, Classic. Add-ons: Oat milk, Soy milk, Extra shot, Caramel syrup.
 
 📌 **Add the following method to `MenuItemsIngestor.java`:**
 
@@ -89,7 +89,7 @@ private Document generateDocument(MenuItem item) {
 ```
 
 **What This Does:**
-- 
+
 - Formats menu item details into a single string.
 - Uses `String.format()` to ensure clear and readable text.
 - Returns a `Document` object that can be processed into embeddings.
@@ -98,7 +98,7 @@ private Document generateDocument(MenuItem item) {
 
 Now, we are ready to ingest menu items into the embedding store.
 
-📌 **Add the following `ingest()` method to `MenuItemsIngestor.java`:**
+**Add the following `ingest()` method to `MenuItemsIngestor.java`:**
 
 ```java
 public void ingest() {
@@ -155,7 +155,7 @@ public static void main(String[] args) {
 ```
 
 **What This Does:**
-- 
+
 - Ensures logging is initialized first.
 - Calls `ingest()` to fill the embedding store before starting the web server.
 - Starts the **Helidon Web Server** to start serving our `ChatBotService`.
@@ -177,7 +177,7 @@ java -jar target/helidon-ai-hol.jar
 http://localhost:8080/chat?question="What can you offer today?"
 ```
 
-### **Sample Test Questions**
+### Sample Test Questions
 
 Here are **five questions** to test whether the **assistant retrieves relevant menu items** from the embeddings store:
 

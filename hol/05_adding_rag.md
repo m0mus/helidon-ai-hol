@@ -12,13 +12,13 @@
 
 **Retrieval-Augmented Generation (RAG)** is an advanced AI technique that enhances LLMs (Large Language Models) by allowing them to retrieve **external knowledge** in real-time. Instead of relying solely on pre-trained data, RAG enables AI models to fetch relevant information from external sources, such as knowledge bases, document stores, or embeddings storage**, leading to more accurate, context-aware responses.
 
-### **Key Components of RAG:**
+### Key Components of RAG:
 
 1. **Embedding Model** → Converts text into numerical vectors (**embeddings**) for similarity-based retrieval.
 2. **Embedding Store** → Stores and retrieves embeddings efficiently.
 3. **Content Retriever** → Fetches relevant content from the embedding store based on user queries.
 
-## 2. Creating the Embedding Model and Store**
+## 2. Creating the Embedding Model and Store
 
 Since our application uses **Helidon Inject**, we need to create **Helidon beans** for the following:
 
@@ -36,10 +36,10 @@ A **Producer** is a **Helidon bean** that implements `Supplier<T>`, where `T` is
 
 We will use the `AllMiniLmL6V2EmbeddingModel`, a pretrained embedding model from LangChain4J.
 
-**Create `EmbeddingModelFactory.java` and add the following code:**
+**Create `EmbeddingModelFactory.java` in `io.helidon.hol.lc4j.ai` package and add the following code:**
 
 ```java
-package io.helidon.hol.lc4j;
+package io.helidon.hol.lc4j.ai;
 
 import java.util.function.Supplier;
 import dev.langchain4j.model.embedding.AllMiniLmL6V2EmbeddingModel;
@@ -67,10 +67,10 @@ class EmbeddingModelFactory implements Supplier<EmbeddingModel> {
 
 Next, we create an **embedding store** that will store and retrieve embeddings efficiently. We will use `InMemoryEmbeddingStore` provided by LangChain4J.
 
-**Create `EmbeddingStoreFactory.java` and add the following code:**
+**Create `EmbeddingStoreFactory.java` in `io.helidon.hol.lc4j.ai` package and add the following code:**
 
 ```java
-package io.helidon.hol.lc4j;
+package io.helidon.hol.lc4j.ai;
 
 import java.util.function.Supplier;
 import dev.langchain4j.store.embedding.EmbeddingStore;
@@ -88,7 +88,7 @@ class EmbeddingStoreFactory implements Supplier<EmbeddingStore<TextSegment>> {
 ```
 
 **What This Does:**
-- 
+
 - Defines a **Helidon bean** using `@Service.Singleton`.
 - Implements `Supplier<EmbeddingStore<TextSegment>>`, making it a factory for the embedding store.
 - Uses `InMemoryEmbeddingStore<TextSegment>`, a simple in-memory storage solution for embeddings.

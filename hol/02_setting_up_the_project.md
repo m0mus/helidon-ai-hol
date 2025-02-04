@@ -3,7 +3,7 @@
 In This Section, We Will:
 
 - Explore the **bootstrap project** that includes a minimal **Helidon SE** application.
-- Understand the **project structure** and its key components.
+- Understand the project structure and its key components.
 - Build and run the project to ensure the setup is correct.
 - Verify that the provided **REST service** is working.
 

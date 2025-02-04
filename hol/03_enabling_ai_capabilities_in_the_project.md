@@ -40,12 +40,10 @@ Add the following dependencies inside the `<dependencies>` section of `pom.xml`:
 <dependency>
     <groupId>io.helidon.integrations.langchain4j</groupId>
     <artifactId>helidon-integrations-langchain4j</artifactId>
-    <version>4.2.0-SNAPSHOT</version>
 </dependency>
 <dependency>
     <groupId>io.helidon.integrations.langchain4j.providers</groupId>
     <artifactId>helidon-integrations-langchain4j-providers-open-ai</artifactId>
-    <version>4.2.0-SNAPSHOT</version>
 </dependency>
 <dependency>
     <groupId>dev.langchain4j</groupId>
@@ -118,15 +116,6 @@ After adding the configuration, the chat model will be **available for injection
 Update `ChatBotService.java` as follows:
 
 ```java
-import io.helidon.common.media.type.MediaTypes;
-import io.helidon.service.registry.Service;
-import io.helidon.webserver.http.HttpRules;
-import io.helidon.webserver.http.HttpService;
-import io.helidon.webserver.http.ServerRequest;
-import io.helidon.webserver.http.ServerResponse;
-
-import dev.langchain4j.model.chat.ChatLanguageModel;
-
 @Service.Singleton
 class ChatBotService implements HttpService {
 
@@ -150,8 +139,7 @@ class ChatBotService implements HttpService {
         // Calling the chat model to get the answer
         var answer = chatModel.generate(question);
 
-        // Setting response content type and returning the answer
-        res.headers().contentType(MediaTypes.TEXT_PLAIN);
+        // Return the answer
         res.send(answer);
     }
 }
