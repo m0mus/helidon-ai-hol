@@ -48,7 +48,7 @@ Add the following dependencies inside the `<dependencies>` section of `pom.xml`:
 <dependency>
     <groupId>dev.langchain4j</groupId>
     <artifactId>langchain4j-embeddings-all-minilm-l6-v2</artifactId>
-    <version>0.35.0</version>
+    <version>${version.lib.langchain4j}</version>
 </dependency>
 ```
 
