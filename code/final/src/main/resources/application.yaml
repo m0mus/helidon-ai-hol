@@ -16,4 +16,4 @@ langchain4j:
       embedding-model: "@default"
       embedding-store: "@default"
 app:
-  menu-items: "./data/menu.json"
+  menu-items: "../../data/menu.json"
