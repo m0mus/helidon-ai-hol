@@ -103,7 +103,7 @@ app:
 
 ### Step 2: Create a Service to Load Menu Data
 
-At this step, we will create a **Helidon-managed bean** responsible for:
+At this step, we will create a **service** responsible for:
 
 - **Loading data from the JSON file**
 - **Converting it into the internal model**
@@ -111,7 +111,7 @@ At this step, we will create a **Helidon-managed bean** responsible for:
 
 **What This Class Will Do:**
 
-- The `MenuItemsIngestor` class will be a **singleton Helidon bean**, ensuring that a **single instance** is used across the application.
+- The `MenuItemsIngestor` class will be a **singleton service**, ensuring that a **single instance** is used across the application.
 - It retrieves the **menu file path** from `application.yaml` using **constructor injection**.
 - The `getMenuItems()` method **parses the JSON file** using **Jackson** and converts it into a `List<MenuItem>`.
 - If the file is missing or unreadable, an **error is logged**, and a `RuntimeException` is thrown to prevent the application from running with missing data.

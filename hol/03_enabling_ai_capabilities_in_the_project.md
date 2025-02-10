@@ -17,7 +17,7 @@ We will use [LangChain4J (LC4J)](https://github.com/langchain4j/langchain4j/) to
 ### Key Features of Helidon LangChain4J Integration:
 
 - **Helidon Inject Support**
-    - Allows **build-time injection** of LangChain4J components into Helidon beans.
+    - Allows **build-time injection** of LangChain4J components into services.
 
 - **Convention over Configuration**
     - Provides **sensible defaults**, reducing manual setup.

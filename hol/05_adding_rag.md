@@ -3,7 +3,7 @@
 ## In This Section, We Will:
 - Understand what **RAG** is and why it’s useful.
 - Learn about **embedding models**, **embedding storage**, and **content retriever**.
-- Implement Helidon beans for these components using **Helidon Inject**.
+- Implement services for these components using **Helidon Inject**.
 - Integrate them into our **AI Service** to enable RAG functionality.
 
 ---
@@ -20,7 +20,7 @@
 
 ## 2. Creating the Embedding Model and Store
 
-Since our application uses **Helidon Inject**, we need to create **Helidon beans** for the following:
+Since our application uses **Helidon Inject**, we need to create **Helidon services** for the following:
 
 - **Embedding Model**
 - **Embedding Store**
@@ -30,7 +30,7 @@ We will use **Helidon Producers** to achieve this.
 
 ### What is a Producer?
 
-A **Producer** is a **Helidon bean** that implements `Supplier<T>`, where `T` is the type it produces. This allows us to define custom factories for components like embedding models and stores.
+A **Producer** is a **service** that implements `Supplier<T>`, where `T` is the type it produces. This allows us to define custom factories for components like embedding models and stores.
 
 ### Step 1: Creating the Embedding Model
 
@@ -57,7 +57,7 @@ class EmbeddingModelFactory implements Supplier<EmbeddingModel> {
 
 **What This Does:**
 
-- Defines a **Helidon bean** using `@Service.Singleton`.
+- Defines a **service** using `@Service.Singleton`.
 - Implements `Supplier<EmbeddingModel>`, making it a factory for the embedding model.
 - Returns an instance of `AllMiniLmL6V2EmbeddingModel`.
 
@@ -89,7 +89,7 @@ class EmbeddingStoreFactory implements Supplier<EmbeddingStore<TextSegment>> {
 
 **What This Does:**
 
-- Defines a **Helidon bean** using `@Service.Singleton`.
+- Defines a **service** using `@Service.Singleton`.
 - Implements `Supplier<EmbeddingStore<TextSegment>>`, making it a factory for the embedding store.
 - Uses `InMemoryEmbeddingStore<TextSegment>`, a simple in-memory storage solution for embeddings.
 
@@ -122,7 +122,7 @@ langchain4j:
 
 **Do We Need to Modify Our AI Service?**  
 
-No! Helidon LangChain4J automatically discovers the `ContentRetriever` bean in the service registry. Since we registered it via configuration, it will be automatically plugged into our **AI Service** without any additional code.
+No! Helidon LangChain4J automatically discovers the `ContentRetriever` service in the service registry. Since we registered it via configuration, it will be automatically plugged into our **AI Service** without any additional code.
 
 After recompiling, our AI Service will now support RAG, allowing it to query data from the embedding store!
 

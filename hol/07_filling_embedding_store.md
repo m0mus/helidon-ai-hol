@@ -20,7 +20,7 @@ We will use LangChain4J’s `EmbeddingStoreIngestor`, which simplifies the inges
 
 ## 2. Creating `MenuItemsIngestor`
 
-We will implement the ingestor as a **Helidon bean** and inject all required components using **constructor injection**.
+We will implement the ingestor as a **service** and inject all required components using **constructor injection**.
 
 **Create `MenuItemsIngestor.java` in `io.helidon.hol.lc4j.ai` and add the following code:**
 

@@ -8,7 +8,7 @@ import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.model.embedding.onnx.allminilml6v2.AllMiniLmL6V2EmbeddingModel;
 
 /**
- * Creates EmbeddingModel as a Helidon bean
+ * Creates EmbeddingModel as a service
  */
 @Service.Singleton
 public class EmbeddingModelFactory implements Supplier<EmbeddingModel> {

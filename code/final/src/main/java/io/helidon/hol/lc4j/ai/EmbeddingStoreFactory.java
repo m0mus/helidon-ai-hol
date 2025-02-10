@@ -9,7 +9,7 @@ import dev.langchain4j.store.embedding.EmbeddingStore;
 import dev.langchain4j.store.embedding.inmemory.InMemoryEmbeddingStore;
 
 /**
- * Creates EmbeddingStore as a Helidon bean
+ * Creates EmbeddingStore as a service
  */
 @Service.Singleton
 public class EmbeddingStoreFactory implements Supplier<EmbeddingStore<TextSegment>> {
