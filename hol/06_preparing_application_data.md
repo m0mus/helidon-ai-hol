@@ -111,12 +111,12 @@ At this step, we will create a **service** responsible for:
 
 **What This Class Will Do:**
 
-- The `MenuItemsIngestor` class will be a **singleton service**, ensuring that a **single instance** is used across the application.
-- It retrieves the **menu file path** from `application.yaml` using **constructor injection**.
-- The `getMenuItems()` method **parses the JSON file** using **Jackson** and converts it into a `List<MenuItem>`.
-- If the file is missing or unreadable, an **error is logged**, and a `RuntimeException` is thrown to prevent the application from running with missing data.
+- The `MenuItemsService` class will be a singleton, ensuring that a single instance is used across the application.
+- It retrieves the menu file path from `application.yaml` using constructor injection.
+- The `getMenuItems()` method parses the JSON file using Jackson and converts it into a `List<MenuItem>`.
+- If the file is missing or unreadable, an error is logged, and a `RuntimeException` is thrown to prevent the application from running with missing data.
 
-**Create `MenuItemsIngestor.java` in `io.helidon.hol.lc4j.data` package:**
+**Create `MenuItemsService.java` in `io.helidon.hol.lc4j.data` package:**
 
 ```java
 package io.helidon.hol.lc4j.data;
@@ -133,13 +133,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service.Singleton
-public class MenuItemsIngestor {
-    private static final Logger LOGGER = Logger.getLogger(MenuItemsIngestor.class.getName());
+public class MenuItemsService {
+    private static final Logger LOGGER = Logger.getLogger(MenuItemsService.class.getName());
     private static final String CONFIG_KEY = "app.menu-items";    
     private final Path jsonPath;
 
     @Service.Inject
-    MenuItemsIngestor(Config config) {
+    MenuItemsService(Config config) {
         // Injecting Config and reading the menu data file path
         this.jsonPath = config.get(CONFIG_KEY)
                 .as(Path.class)
@@ -174,7 +174,7 @@ public class ApplicationMain {
         var config = Services.get(Config.class);
 
         // Read and print menu items
-        var menuItems = Services.get(MenuItemsIngestor.class).getMenuItems();
+        var menuItems = Services.get(MenuItemsService.class).getMenuItems();
         menuItems.forEach(item -> System.out.println("Loaded menu item: " + item.getName()));
 
         // Start Helidon Web Server

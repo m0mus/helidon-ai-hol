@@ -87,7 +87,7 @@ class ChatBotService implements HttpService {
 
     private void chatWithAssistant(ServerRequest req, ServerResponse res) {
         // Reading the `question` query parameter from the request. 
-        var question = req.query().get("question").orElse("Hello");
+        var question = req.query().first("question").orElse("Hello");
 
         // Calling the AI service to get the answer
         var answer = chatAiService.chat(question);
