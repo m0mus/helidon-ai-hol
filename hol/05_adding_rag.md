@@ -101,11 +101,7 @@ To connect our embedding store to the **AI Service**, we need a **Content Retrie
 
 ```yaml
 langchain4j:
-  open-ai:
-    chat-model:
-      enabled: true
-      api-key: "demo"
-      model-name: "gpt-4o-mini"
+  ...
   rag:
     embedding-store-content-retriever:
       enabled: true
