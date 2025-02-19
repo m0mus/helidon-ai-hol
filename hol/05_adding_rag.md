@@ -10,7 +10,7 @@
 
 ## 1. What is RAG?
 
-**Retrieval-Augmented Generation (RAG)** is an advanced AI technique that enhances LLMs (Large Language Models) by allowing them to retrieve **external knowledge** in real-time. Instead of relying solely on pre-trained data, RAG enables AI models to fetch relevant information from external sources, such as knowledge bases, document stores, or embeddings storage**, leading to more accurate, context-aware responses.
+**Retrieval-Augmented Generation (RAG)** is an advanced AI technique that enhances LLMs (Large Language Models) by allowing them to retrieve **external knowledge** in real-time. Instead of relying solely on pre-trained data, RAG enables AI models to fetch relevant information from external sources, such as knowledge bases, document stores, or **embeddings storage**, leading to more accurate, context-aware responses.
 
 ### Key Components of RAG:
 
@@ -42,7 +42,7 @@ We will use the `AllMiniLmL6V2EmbeddingModel`, a pretrained embedding model from
 package io.helidon.hol.lc4j.ai;
 
 import java.util.function.Supplier;
-import dev.langchain4j.model.embedding.AllMiniLmL6V2EmbeddingModel;
+import dev.langchain4j.model.embedding.onnx.allminilml6v2.AllMiniLmL6V2EmbeddingModel;
 import dev.langchain4j.model.embedding.EmbeddingModel;
 import io.helidon.service.registry.Service;
 
@@ -97,10 +97,11 @@ class EmbeddingStoreFactory implements Supplier<EmbeddingStore<TextSegment>> {
 
 To connect our embedding store to the **AI Service**, we need a **Content Retriever**. Instead of writing Java code, Helidon allows configuring it directly via YAML.
 
-**Modify `application.yaml` and add the following:**
+**Modify `application.yaml` and add the RAG configuration part:**
 
 ```yaml
 langchain4j:
+  ...
   rag:
     embedding-store-content-retriever:
       enabled: true
@@ -146,7 +147,7 @@ http://localhost:8080/chat?question=What drinks do you have?
 Or use `curl`:
 
 ```sh
-curl -X GET "http://localhost:8080/chat?question=What drinks do you have?"
+curl -G -X GET "http://localhost:8080/chat" --data-urlencode "question=What drinks do you have?"
 ```
 
 **Expected Behavior:**

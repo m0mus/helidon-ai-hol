@@ -30,7 +30,7 @@ At this stage, only the **`ChatLanguageModel`** has been configured, so it will 
 
 📌 We will keep all AI-related classes in `io.helidon.hol.lc4j.ai` package. Create this package first if it doesn't exist.
 
-**Create a new file `MenuItem.java` in `io.helidon.hol.lc4j.ai` package:**
+**Create a new file `ChatAiService.java` in `io.helidon.hol.lc4j.ai` package:**
 
 ```java
 package io.helidon.hol.lc4j.ai;
@@ -40,7 +40,7 @@ import io.helidon.integrations.langchain4j.Ai;
 import dev.langchain4j.service.SystemMessage;
 
 @Ai.Service
-interface ChatAiService {
+public interface ChatAiService {
 
     String chat(String question);
 }
@@ -70,7 +70,7 @@ Here is the updated version of `ChatBotService`:
 
 ```java
 @Service.Singleton
-class ChatBotService implements HttpService {
+public class ChatBotService implements HttpService {
 
     private final ChatAiService chatAiService;
 

@@ -116,8 +116,10 @@ After adding the configuration, the chat model will be **available for injection
 Update `ChatBotService.java` as follows:
 
 ```java
+import dev.langchain4j.model.chat.ChatLanguageModel;
+
 @Service.Singleton
-class ChatBotService implements HttpService {
+public class ChatBotService implements HttpService {
 
     private final ChatLanguageModel chatModel;
 
