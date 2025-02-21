@@ -30,7 +30,7 @@ We will use [LangChain4J (LC4J)](https://github.com/langchain4j/langchain4j/) to
 
 ## 2. Adding Maven Dependencies
 
-To enable Helidon and LangChain4J integration, we need to add several **Maven dependencies** and **annotation processors**.
+To enable Helidon and LangChain4J integration, we need to add several **Maven dependencies** and **annotation processor**.
 
 ### Add Dependencies
 
@@ -52,9 +52,10 @@ Add the following dependencies inside the `<dependencies>` section of `pom.xml`:
 </dependency>
 ```
 
-### Add Annotation Processors
+### Add Annotation Processor
 
-Since **Helidon Inject** works at build time, we need to include annotation processors in the `<build><plugins>` section of `pom.xml`:
+Since **Helidon Inject** works at build time, we need to add annotation processor `helidon-integrations-langchain4j-codegen` 
+to the `maven-compiler-plugin` in `pom.xml`, result should look like the following:
 
 ```xml
 <plugin>
@@ -68,14 +69,14 @@ Since **Helidon Inject** works at build time, we need to include annotation proc
                 <version>${helidon.version}</version>
             </path>
             <path>
-                <groupId>io.helidon.integrations.langchain4j</groupId>
-                <artifactId>helidon-integrations-langchain4j-codegen</artifactId>
-                <version>${helidon.version}</version>
-            </path>
-            <path>
                 <groupId>io.helidon.service</groupId>
                 <artifactId>helidon-service-codegen</artifactId>
                 <version>${helidon.version}</version>
+            </path>
+            <path>
+              <groupId>io.helidon.integrations.langchain4j</groupId>
+              <artifactId>helidon-integrations-langchain4j-codegen</artifactId>
+              <version>${helidon.version}</version>
             </path>
         </annotationProcessorPaths>
     </configuration>

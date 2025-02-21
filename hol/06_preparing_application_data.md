@@ -98,7 +98,7 @@ Modify the `application.yaml` file to specify the path to `menu.json`:
 
 ```yaml
 app:
-  menu-items: "./data/menu.json"
+  menu-items: "../../data/menu.json"
 ```
 
 ### Step 2: Create a Service to Load Menu Data

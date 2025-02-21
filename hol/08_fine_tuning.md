@@ -48,7 +48,7 @@ Modify `ChatAiService.java` to include chat memory and a system message:
 ```java
 @Ai.Service
 @Ai.ChatMemoryWindow(10)
-interface ChatAiService {
+public interface ChatAiService {
 
     @SystemMessage("""
             You are Frank - a friendly coffee shop assistant helping customers with their orders.

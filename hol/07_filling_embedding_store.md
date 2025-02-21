@@ -28,9 +28,12 @@ We will implement the ingestor as a **service** and inject all required componen
 package io.helidon.hol.lc4j.ai;
 
 import io.helidon.hol.lc4j.data.MenuItemsService;
+import io.helidon.hol.lc4j.data.MenuItem;
 import io.helidon.service.registry.Service;
 import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.store.embedding.EmbeddingStore;
+import dev.langchain4j.store.embedding.EmbeddingStoreIngestor;
+import dev.langchain4j.data.document.Document;
 import dev.langchain4j.data.segment.TextSegment;
 import io.helidon.common.config.Config;
 

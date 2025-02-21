@@ -14,6 +14,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <maven.compiler.release>21</maven.compiler.release>
         <mainClass>io.helidon.hol.lc4j.ApplicationMain</mainClass>
     </properties>
 
@@ -52,6 +53,24 @@
                         <id>copy-libs</id>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>io.helidon.codegen</groupId>
+                            <artifactId>helidon-codegen-apt</artifactId>
+                            <version>${helidon.version}</version>
+                        </path>
+                        <path>
+                            <groupId>io.helidon.service</groupId>
+                            <artifactId>helidon-service-codegen</artifactId>
+                            <version>${helidon.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
             </plugin>
         </plugins>
     </build>
