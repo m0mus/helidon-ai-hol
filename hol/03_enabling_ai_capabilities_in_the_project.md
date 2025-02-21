@@ -55,7 +55,7 @@ Add the following dependencies inside the `<dependencies>` section of `pom.xml`:
 ### Add Annotation Processor
 
 Since **Helidon Inject** works at build time, we need to add annotation processor `helidon-integrations-langchain4j-codegen` 
-in the `<build><plugins>` section of `pom.xml`:
+to the `maven-compiler-plugin` in `pom.xml`, result should look like the following:
 
 ```xml
 <plugin>
